@@ -1,0 +1,63 @@
+type User
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "id", operations: [create, update, delete] }
+    ]
+  ) {
+  id: ID!
+  username: String!
+  posts: [Post] @connection
+  createdAt: String
+  updatedAt: String
+}
+
+type Post
+  @model
+  @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
+  id: ID!
+  postContent: String
+  postImage: S3Object
+  comments: [Comment] @connection
+  votes: Int
+}
+
+type Comment
+  @model
+  @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
+  id: ID!
+  text: String!
+  author: String!
+  votes: Int
+  post: Post @connection
+}
+
+type Vote
+  @model
+  @key(
+    name: "byUser"
+    fields: ["createdBy", "createdAt"]
+    queryField: "votesByUser"
+  ) {
+  id: ID!
+  postId: ID!
+  createdBy: ID!
+  createdAt: String!
+  vote: VoteType
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+input VoteInput {
+  type: VoteType!
+  id: ID!
+}
+
+enum VoteType {
+  up
+  down
+}

@@ -1,0 +1,19 @@
+{
+    "bnomicsdev": {
+        "awscloudformation": {
+            "AuthRoleName": "bnomics-bnomicsdev-20191020154010-authRole",
+            "UnauthRoleArn": "arn:aws:iam::256739323776:role/bnomics-bnomicsdev-20191020154010-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::256739323776:role/bnomics-bnomicsdev-20191020154010-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "bnomics-bnomicsdev-20191020154010-deployment",
+            "UnauthRoleName": "bnomics-bnomicsdev-20191020154010-unauthRole",
+            "StackName": "bnomics-bnomicsdev-20191020154010",
+            "StackId": "arn:aws:cloudformation:us-east-1:256739323776:stack/bnomics-bnomicsdev-20191020154010/cfbb1ed0-f379-11e9-9591-0a6bdb6a0e76"
+        },
+        "categories": {
+            "auth": {
+                "bnomics05426d24": {}
+            }
+        }
+    }
+}
