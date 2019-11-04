@@ -1,33 +1,8 @@
 import React from "react";
 import ReactQuill, { Quill } from "react-quill";
+import { Button } from "react-bootstrap";
 
-// const CustomToolbar = () => (
-//   <div id="toolbar">
-//     <select className="ql-font">
-//       <option value="arial" selected>
-//         Arial
-//       </option>
-//       <option value="comic-sans">Comic Sans</option>
-//       <option value="courier-new">Courier New</option>
-//       <option value="georgia">Georgia</option>
-//       <option value="helvetica">Helvetica</option>
-//       <option value="lucida">Lucida</option>
-//     </select>
-//     <select className="ql-size">
-//       <option value="extra-small">Size 1</option>
-//       <option value="small">Size 2</option>
-//       <option value="medium" selected>
-//         Size 3
-//       </option>
-//       <option value="large">Size 4</option>
-//     </select>
-//     <select className="ql-align" />
-//     <select className="ql-color" />
-//     <select className="ql-background" />
-//     <button className="ql-clean" />
-//   </div>
-// );
-
+// Add Sizes to whitelist
 const Size = Quill.import("formats/size");
 Size.whitelist = ["extra-small", "small", "medium", "large"];
 Quill.register(Size, true);
@@ -44,6 +19,25 @@ Font.whitelist = [
 ];
 Quill.register(Font, true);
 
+const toolbarOptions = [
+  ["bold", "italic", "underline", "strike"], // toggled buttons
+  ["blockquote", "code-block"],
+
+  [{ header: 1 }, { header: 2 }], // custom button values
+  [{ list: "ordered" }, { list: "bullet" }],
+  [{ script: "sub" }, { script: "super" }], // superscript/subscript
+  [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+  [{ image: "" }],
+  [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+  [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  [{ font: [] }],
+  [{ align: [] }],
+
+  ["clean"] // remove formatting button
+];
+
 class QuillEditorComponent extends React.Component {
   state = {
     editorHtml: "",
@@ -52,18 +46,11 @@ class QuillEditorComponent extends React.Component {
 
   handleChange = html => {
     this.setState({ editorHtml: html });
+    //console.log(JSON.stringify(html));
   };
 
   modules = {
-    toolbar: [
-      [{ font: [] }],
-      [{ size: ["small", false, "large", "huge"] }],
-      ["bold", "italic", "underline"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ align: [] }],
-      [{ color: [] }, { background: [] }],
-      ["clean"]
-    ]
+    toolbar: toolbarOptions
   };
 
   static formats = [
@@ -94,7 +81,18 @@ class QuillEditorComponent extends React.Component {
             placeholder={this.props.placeholder}
             modules={this.modules}
             formats={this.formats}
+            bounds={".editor"}
+            theme="snow"
           />
+        </div>
+        <div className="row">
+          <Button
+            onClick={() => {
+              console.log(JSON.stringify(this.state.editorHtml));
+            }}
+          >
+            Sign In
+          </Button>
         </div>
       </>
     );

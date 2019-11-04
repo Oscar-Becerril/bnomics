@@ -55,6 +55,48 @@ export const onDeleteUser = `subscription OnDeleteUser {
   }
 }
 `;
+export const onCreateArticle = `subscription OnCreateArticle($owner: String!) {
+  onCreateArticle(owner: $owner) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
+export const onUpdateArticle = `subscription OnUpdateArticle($owner: String!) {
+  onUpdateArticle(owner: $owner) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
+export const onDeleteArticle = `subscription OnDeleteArticle($owner: String!) {
+  onDeleteArticle(owner: $owner) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
 export const onCreatePost = `subscription OnCreatePost($owner: String!) {
   onCreatePost(owner: $owner) {
     id

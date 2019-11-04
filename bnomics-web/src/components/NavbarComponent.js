@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Nav, Navbar, Container, Image } from "react-bootstrap";
 
+import { Auth } from "aws-amplify";
+
 class NavbarComponent extends React.Component {
   state = {
     user: null
@@ -11,7 +13,7 @@ class NavbarComponent extends React.Component {
     const { user } = this.state;
     return (
       <>
-        <div>
+        <div className="navbar">
           <Container>
             <Navbar
               collapseOnSelect
@@ -41,7 +43,9 @@ class NavbarComponent extends React.Component {
                         Debate
                       </NavLink>
                     </Nav>
-                    <Button onClick={handleSignIn}>Sign In</Button>
+                    <Button onClick={() => Auth.federatedSignIn()}>
+                      Sign In
+                    </Button>
                   </>
                 ) : (
                   <Nav className="navbar-nav mr-auto">

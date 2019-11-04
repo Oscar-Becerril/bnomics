@@ -38,6 +38,41 @@ export const listUsers = `query ListUsers(
   }
 }
 `;
+export const getArticle = `query GetArticle($id: ID!) {
+  getArticle(id: $id) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
+export const listArticles = `query ListArticles(
+  $filter: ModelArticleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      postContent
+      postImage {
+        bucket
+        region
+        key
+      }
+      votes
+      owner
+    }
+    nextToken
+  }
+}
+`;
 export const getPost = `query GetPost($id: ID!) {
   getPost(id: $id) {
     id

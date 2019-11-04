@@ -1,21 +1,38 @@
 type User
-  @model
+  @model(subscriptions: null)
   @auth(
     rules: [
-      { allow: owner, ownerField: "id", operations: [create, update, delete] }
+      {
+        allow: owner
+        ownerField: "userId"
+        operations: [create, update, delete]
+      }
     ]
   ) {
   id: ID!
+  userId: ID
   username: String!
   posts: [Post] @connection
   createdAt: String
   updatedAt: String
 }
 
+type Article
+  @model
+  @searchable
+  @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
+  id: ID!
+  owner: String
+  postContent: String
+  postImage: S3Object
+  votes: Int
+}
+
 type Post
   @model
   @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
   id: ID!
+  owner: String
   postContent: String
   postImage: S3Object
   comments: [Comment] @connection

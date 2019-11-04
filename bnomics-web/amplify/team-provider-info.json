@@ -12,7 +12,9 @@
         },
         "categories": {
             "auth": {
-                "bnomics05426d24": {}
+                "bnomics05426d24": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"2467889340161729\",\"client_secret\":\"13e63f22215aeda0589f96934fe4fa3b\"},{\"ProviderName\":\"Google\",\"client_id\":\"890122759142-hjv9ridub19ec9h9t91dra1k8hot8ein.apps.googleusercontent.com\",\"client_secret\":\"UoqXZC7P7HAcw4GvVEHPkKKt\"}]"
+                }
             }
         }
     }

@@ -2,19 +2,24 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #dde3ee;
-  min-height: 100vh;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(53, 53, 53);
+  color: #353535;
 }
 
 .App-link {
@@ -25,6 +30,9 @@
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
   background: #fefcfc;
+  height: auto;
+  min-height: 100%;
+  padding: 50px;
 }
 
 .ql-toolbar {
@@ -37,5 +45,13 @@
 .ql-editor {
   display: block;
   height: 500px;
-  width: 70%;
 }
+
+.text-editor .text-reader p {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(5px + 2vmin);
+  color: #00ff00;
+}
+/*# sourceMappingURL=App.css.map */

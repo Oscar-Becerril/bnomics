@@ -55,6 +55,48 @@ export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
   }
 }
 `;
+export const createArticle = `mutation CreateArticle($input: CreateArticleInput!) {
+  createArticle(input: $input) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
+export const updateArticle = `mutation UpdateArticle($input: UpdateArticleInput!) {
+  updateArticle(input: $input) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
+export const deleteArticle = `mutation DeleteArticle($input: DeleteArticleInput!) {
+  deleteArticle(input: $input) {
+    id
+    postContent
+    postImage {
+      bucket
+      region
+      key
+    }
+    votes
+    owner
+  }
+}
+`;
 export const createPost = `mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
     id
