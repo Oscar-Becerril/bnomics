@@ -47,6 +47,12 @@
   height: 500px;
 }
 
+form .ql-editor {
+  display: block;
+  height: 200px;
+  width: 800px;
+}
+
 .text-editor .text-reader p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;

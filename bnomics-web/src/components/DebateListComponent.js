@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class DebateListComponent extends React.Component {
   state = {};
 
   render() {
-    return <div>DebateListComponent</div>;
+    return <div>Placeholder</div>;
   }
 }
 

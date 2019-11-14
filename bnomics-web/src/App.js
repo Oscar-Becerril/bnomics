@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 
 // Pages
-import "./App.css";
+
 import HomePage from "./pages/HomePage";
 import DebatesPage from "./pages/DebatesPage";
 import ArticleEditorPage from "./pages/ArticleEditorPage";
@@ -90,9 +90,9 @@ class App extends React.Component {
     const input = {
       username: user
     };
-    const result = await API.graphql(graphqlOperation(getUser, input)).catch(
-      err => console.log(err)
-    );
+    const result = await API.graphql(
+      graphqlOperation(getUser, input)
+    ).catch(err => console.log(err));
     if (user) {
       try {
         user.attributes.sub === result.data.getUser.userID

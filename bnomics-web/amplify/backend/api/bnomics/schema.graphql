@@ -34,7 +34,6 @@ type Post
   id: ID!
   owner: String
   postContent: String
-  postImage: S3Object
   comments: [Comment] @connection
   votes: Int
 }
@@ -47,6 +46,39 @@ type Comment
   author: String!
   votes: Int
   post: Post @connection
+}
+
+type DebatePost
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [update, delete] }
+      { allow: groups, groups: ["Premium"], operations: [create] }
+      { allow: groups, groups: ["Admin"], operations: [create, update, delete] }
+    ]
+  ) {
+  id: ID!
+  tags: [String]
+  owner: String
+  title: String!
+  postContent: String!
+  comments: [DebateComment] @connection
+  votes: Int
+}
+
+type DebateComment
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, update, delete] }
+      { allow: groups, groups: ["Admin"], operations: [create, update, delete] }
+    ]
+  ) {
+  id: ID!
+  text: String!
+  author: String!
+  votes: Int
+  post: DebatePost @connection
 }
 
 type Vote

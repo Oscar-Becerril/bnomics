@@ -1,63 +1,10 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = `subscription OnCreateUser {
-  onCreateUser {
-    id
-    username
-    posts {
-      items {
-        id
-        postContent
-        votes
-        owner
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-  }
-}
-`;
-export const onUpdateUser = `subscription OnUpdateUser {
-  onUpdateUser {
-    id
-    username
-    posts {
-      items {
-        id
-        postContent
-        votes
-        owner
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-  }
-}
-`;
-export const onDeleteUser = `subscription OnDeleteUser {
-  onDeleteUser {
-    id
-    username
-    posts {
-      items {
-        id
-        postContent
-        votes
-        owner
-      }
-      nextToken
-    }
-    createdAt
-    updatedAt
-  }
-}
-`;
 export const onCreateArticle = `subscription OnCreateArticle($owner: String!) {
   onCreateArticle(owner: $owner) {
     id
+    owner
     postContent
     postImage {
       bucket
@@ -65,13 +12,13 @@ export const onCreateArticle = `subscription OnCreateArticle($owner: String!) {
       key
     }
     votes
-    owner
   }
 }
 `;
 export const onUpdateArticle = `subscription OnUpdateArticle($owner: String!) {
   onUpdateArticle(owner: $owner) {
     id
+    owner
     postContent
     postImage {
       bucket
@@ -79,13 +26,13 @@ export const onUpdateArticle = `subscription OnUpdateArticle($owner: String!) {
       key
     }
     votes
-    owner
   }
 }
 `;
 export const onDeleteArticle = `subscription OnDeleteArticle($owner: String!) {
   onDeleteArticle(owner: $owner) {
     id
+    owner
     postContent
     postImage {
       bucket
@@ -93,19 +40,14 @@ export const onDeleteArticle = `subscription OnDeleteArticle($owner: String!) {
       key
     }
     votes
-    owner
   }
 }
 `;
 export const onCreatePost = `subscription OnCreatePost($owner: String!) {
   onCreatePost(owner: $owner) {
     id
+    owner
     postContent
-    postImage {
-      bucket
-      region
-      key
-    }
     comments {
       items {
         id
@@ -117,19 +59,14 @@ export const onCreatePost = `subscription OnCreatePost($owner: String!) {
       nextToken
     }
     votes
-    owner
   }
 }
 `;
 export const onUpdatePost = `subscription OnUpdatePost($owner: String!) {
   onUpdatePost(owner: $owner) {
     id
+    owner
     postContent
-    postImage {
-      bucket
-      region
-      key
-    }
     comments {
       items {
         id
@@ -141,19 +78,14 @@ export const onUpdatePost = `subscription OnUpdatePost($owner: String!) {
       nextToken
     }
     votes
-    owner
   }
 }
 `;
 export const onDeletePost = `subscription OnDeletePost($owner: String!) {
   onDeletePost(owner: $owner) {
     id
+    owner
     postContent
-    postImage {
-      bucket
-      region
-      key
-    }
     comments {
       items {
         id
@@ -165,7 +97,6 @@ export const onDeletePost = `subscription OnDeletePost($owner: String!) {
       nextToken
     }
     votes
-    owner
   }
 }
 `;
@@ -177,17 +108,12 @@ export const onCreateComment = `subscription OnCreateComment($owner: String!) {
     votes
     post {
       id
+      owner
       postContent
-      postImage {
-        bucket
-        region
-        key
-      }
       comments {
         nextToken
       }
       votes
-      owner
     }
     owner
   }
@@ -201,17 +127,12 @@ export const onUpdateComment = `subscription OnUpdateComment($owner: String!) {
     votes
     post {
       id
+      owner
       postContent
-      postImage {
-        bucket
-        region
-        key
-      }
       comments {
         nextToken
       }
       votes
-      owner
     }
     owner
   }
@@ -225,17 +146,138 @@ export const onDeleteComment = `subscription OnDeleteComment($owner: String!) {
     votes
     post {
       id
+      owner
       postContent
-      postImage {
-        bucket
-        region
-        key
-      }
       comments {
         nextToken
       }
       votes
+    }
+    owner
+  }
+}
+`;
+export const onCreateDebatePost = `subscription OnCreateDebatePost {
+  onCreateDebatePost {
+    id
+    tags
+    owner
+    title
+    postContent
+    comments {
+      items {
+        id
+        text
+        author
+        votes
+        owner
+      }
+      nextToken
+    }
+    votes
+  }
+}
+`;
+export const onUpdateDebatePost = `subscription OnUpdateDebatePost($owner: String) {
+  onUpdateDebatePost(owner: $owner) {
+    id
+    tags
+    owner
+    title
+    postContent
+    comments {
+      items {
+        id
+        text
+        author
+        votes
+        owner
+      }
+      nextToken
+    }
+    votes
+  }
+}
+`;
+export const onDeleteDebatePost = `subscription OnDeleteDebatePost($owner: String) {
+  onDeleteDebatePost(owner: $owner) {
+    id
+    tags
+    owner
+    title
+    postContent
+    comments {
+      items {
+        id
+        text
+        author
+        votes
+        owner
+      }
+      nextToken
+    }
+    votes
+  }
+}
+`;
+export const onCreateDebateComment = `subscription OnCreateDebateComment($owner: String) {
+  onCreateDebateComment(owner: $owner) {
+    id
+    text
+    author
+    votes
+    post {
+      id
+      tags
       owner
+      title
+      postContent
+      comments {
+        nextToken
+      }
+      votes
+    }
+    owner
+  }
+}
+`;
+export const onUpdateDebateComment = `subscription OnUpdateDebateComment($owner: String) {
+  onUpdateDebateComment(owner: $owner) {
+    id
+    text
+    author
+    votes
+    post {
+      id
+      tags
+      owner
+      title
+      postContent
+      comments {
+        nextToken
+      }
+      votes
+    }
+    owner
+  }
+}
+`;
+export const onDeleteDebateComment = `subscription OnDeleteDebateComment($owner: String) {
+  onDeleteDebateComment(owner: $owner) {
+    id
+    text
+    author
+    votes
+    post {
+      id
+      tags
+      owner
+      title
+      postContent
+      comments {
+        nextToken
+      }
+      votes
     }
     owner
   }

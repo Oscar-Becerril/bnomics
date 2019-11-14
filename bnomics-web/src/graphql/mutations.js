@@ -4,13 +4,14 @@
 export const createUser = `mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
     id
+    userId
     username
     posts {
       items {
         id
+        owner
         postContent
         votes
-        owner
       }
       nextToken
     }
@@ -22,13 +23,14 @@ export const createUser = `mutation CreateUser($input: CreateUserInput!) {
 export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
     id
+    userId
     username
     posts {
       items {
         id
+        owner
         postContent
         votes
-        owner
       }
       nextToken
     }
@@ -40,13 +42,14 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
 export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
     id
+    userId
     username
     posts {
       items {
         id
+        owner
         postContent
         votes
-        owner
       }
       nextToken
     }
@@ -58,6 +61,7 @@ export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
 export const createArticle = `mutation CreateArticle($input: CreateArticleInput!) {
   createArticle(input: $input) {
     id
+    owner
     postContent
     postImage {
       bucket
@@ -65,13 +69,13 @@ export const createArticle = `mutation CreateArticle($input: CreateArticleInput!
       key
     }
     votes
-    owner
   }
 }
 `;
 export const updateArticle = `mutation UpdateArticle($input: UpdateArticleInput!) {
   updateArticle(input: $input) {
     id
+    owner
     postContent
     postImage {
       bucket
@@ -79,13 +83,13 @@ export const updateArticle = `mutation UpdateArticle($input: UpdateArticleInput!
       key
     }
     votes
-    owner
   }
 }
 `;
 export const deleteArticle = `mutation DeleteArticle($input: DeleteArticleInput!) {
   deleteArticle(input: $input) {
     id
+    owner
     postContent
     postImage {
       bucket
@@ -93,19 +97,14 @@ export const deleteArticle = `mutation DeleteArticle($input: DeleteArticleInput!
       key
     }
     votes
-    owner
   }
 }
 `;
 export const createPost = `mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
     id
+    owner
     postContent
-    postImage {
-      bucket
-      region
-      key
-    }
     comments {
       items {
         id
@@ -117,19 +116,14 @@ export const createPost = `mutation CreatePost($input: CreatePostInput!) {
       nextToken
     }
     votes
-    owner
   }
 }
 `;
 export const updatePost = `mutation UpdatePost($input: UpdatePostInput!) {
   updatePost(input: $input) {
     id
+    owner
     postContent
-    postImage {
-      bucket
-      region
-      key
-    }
     comments {
       items {
         id
@@ -141,19 +135,14 @@ export const updatePost = `mutation UpdatePost($input: UpdatePostInput!) {
       nextToken
     }
     votes
-    owner
   }
 }
 `;
 export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
   deletePost(input: $input) {
     id
+    owner
     postContent
-    postImage {
-      bucket
-      region
-      key
-    }
     comments {
       items {
         id
@@ -165,7 +154,6 @@ export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
       nextToken
     }
     votes
-    owner
   }
 }
 `;
@@ -177,17 +165,12 @@ export const createComment = `mutation CreateComment($input: CreateCommentInput!
     votes
     post {
       id
+      owner
       postContent
-      postImage {
-        bucket
-        region
-        key
-      }
       comments {
         nextToken
       }
       votes
-      owner
     }
     owner
   }
@@ -201,17 +184,12 @@ export const updateComment = `mutation UpdateComment($input: UpdateCommentInput!
     votes
     post {
       id
+      owner
       postContent
-      postImage {
-        bucket
-        region
-        key
-      }
       comments {
         nextToken
       }
       votes
-      owner
     }
     owner
   }
@@ -225,17 +203,138 @@ export const deleteComment = `mutation DeleteComment($input: DeleteCommentInput!
     votes
     post {
       id
+      owner
       postContent
-      postImage {
-        bucket
-        region
-        key
-      }
       comments {
         nextToken
       }
       votes
+    }
+    owner
+  }
+}
+`;
+export const createDebatePost = `mutation CreateDebatePost($input: CreateDebatePostInput!) {
+  createDebatePost(input: $input) {
+    id
+    tags
+    owner
+    title
+    postContent
+    comments {
+      items {
+        id
+        text
+        author
+        votes
+        owner
+      }
+      nextToken
+    }
+    votes
+  }
+}
+`;
+export const updateDebatePost = `mutation UpdateDebatePost($input: UpdateDebatePostInput!) {
+  updateDebatePost(input: $input) {
+    id
+    tags
+    owner
+    title
+    postContent
+    comments {
+      items {
+        id
+        text
+        author
+        votes
+        owner
+      }
+      nextToken
+    }
+    votes
+  }
+}
+`;
+export const deleteDebatePost = `mutation DeleteDebatePost($input: DeleteDebatePostInput!) {
+  deleteDebatePost(input: $input) {
+    id
+    tags
+    owner
+    title
+    postContent
+    comments {
+      items {
+        id
+        text
+        author
+        votes
+        owner
+      }
+      nextToken
+    }
+    votes
+  }
+}
+`;
+export const createDebateComment = `mutation CreateDebateComment($input: CreateDebateCommentInput!) {
+  createDebateComment(input: $input) {
+    id
+    text
+    author
+    votes
+    post {
+      id
+      tags
       owner
+      title
+      postContent
+      comments {
+        nextToken
+      }
+      votes
+    }
+    owner
+  }
+}
+`;
+export const updateDebateComment = `mutation UpdateDebateComment($input: UpdateDebateCommentInput!) {
+  updateDebateComment(input: $input) {
+    id
+    text
+    author
+    votes
+    post {
+      id
+      tags
+      owner
+      title
+      postContent
+      comments {
+        nextToken
+      }
+      votes
+    }
+    owner
+  }
+}
+`;
+export const deleteDebateComment = `mutation DeleteDebateComment($input: DeleteDebateCommentInput!) {
+  deleteDebateComment(input: $input) {
+    id
+    text
+    author
+    votes
+    post {
+      id
+      tags
+      owner
+      title
+      postContent
+      comments {
+        nextToken
+      }
+      votes
     }
     owner
   }

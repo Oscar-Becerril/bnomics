@@ -5,8 +5,14 @@ import aws_exports from "./aws-exports";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-quill/dist/quill.snow.css";
 import "./index.css";
+import "./App.css";
+import "element-theme-default";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { i18n } from "element-react";
+import locale from "element-react/src/locale/lang/en";
+
+i18n.use(locale);
 
 Amplify.configure(aws_exports);
 ReactDOM.render(<App />, document.getElementById("root"));
