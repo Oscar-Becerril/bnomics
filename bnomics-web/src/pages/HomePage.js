@@ -5,7 +5,7 @@ class HomePage extends React.Component {
   state = {};
 
   componentDidMount() {
-    console.log("Home page Mounted");
+    // console.log("Home page Mounted");
   }
 
   render() {

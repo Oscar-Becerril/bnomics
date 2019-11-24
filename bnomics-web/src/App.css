@@ -4,7 +4,6 @@
 
 .App-header {
   background-color: #dde3ee;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,6 +19,32 @@
           justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #353535;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 2000;
+}
+
+.App-content {
+  position: relative;
+  background-color: #dde3ee;
+  height: 100vh;
+  padding-top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #353535;
+  z-index: 1200;
 }
 
 .App-link {
@@ -59,5 +84,64 @@ form .ql-editor {
           justify-content: center;
   font-size: calc(5px + 2vmin);
   color: #00ff00;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signInForm {
+  display: block;
+  background: #fefcfc;
+  height: auto;
+  padding: 50px;
+  border-radius: 0.5em;
+}
+
+.signUpForm {
+  display: block;
+  background: #fefcfc;
+  height: auto;
+  padding-top: 10%;
+  padding: 50px;
+  border-radius: 0.5em;
+}
+
+.forgotten-password {
+  size: 5px;
+}
+
+.facebook {
+  color: "#3b5998";
+}
+
+.google {
+  background: "#fff";
+}
+
+Button {
+  margin: 5px;
+}
+
+.password-verification {
+  margin-top: 0px;
+  padding-top: 1px;
+}
+
+.password-verification p {
+  margin-top: 0px;
+  font-size: 1vh;
 }
 /*# sourceMappingURL=App.css.map */

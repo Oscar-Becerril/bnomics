@@ -3,13 +3,28 @@
 
   &-header
     background-color: #dde3ee
-    height: 100vh
+    // height: 20vh
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     font-size: calc(10px + 2vmin)
     color: rgb(53, 53, 53)
+    position: sticky
+    z-index: 2000
+
+  &-content
+    position: relative
+    background-color: #dde3ee
+    height: 100vh
+    padding-top: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    font-size: calc(10px + 2vmin)
+    color: rgb(53, 53, 53)
+    z-index: 1200
 
   &-link
     color: #09d3ac
@@ -42,3 +57,43 @@ form
   justify-content: center
   font-size: calc(5px + 2vmin)
   color: #00ff00
+
+.flex-center
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+
+.signInForm
+  display: block
+  background: #fefcfc
+  height: auto
+  padding: 50px
+  border-radius: 0.5em
+
+.signUpForm
+  display: block
+  background: #fefcfc
+  height: auto
+  padding-top: 10%
+  padding: 50px
+  border-radius: 0.5em
+
+.forgotten-password
+  size: 5px
+
+.facebook
+  color: "#3b5998"
+
+.google
+  background: "#fff"
+
+Button
+  margin: 5px
+
+.password-verification
+  margin-top: 0px
+  padding-top: 1px
+  p
+    margin-top: 0px
+    font-size: 1vh
