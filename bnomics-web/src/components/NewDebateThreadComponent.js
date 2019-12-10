@@ -81,7 +81,7 @@ class NewDebateThreadComponent extends React.Component {
     const { tags, selectedTags, title, editorHtml } = this.state;
 
     return (
-      <div className="flex-center">
+      <div className="flex-center debate-tread-form">
         <h2 className="header">Crea un nuevo debate</h2>
         <div className="">
           <Form className="newDebateForm">

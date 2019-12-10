@@ -5,6 +5,9 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
+// Utils
+import LinkButton from "../utils/LinkButton";
+
 class SignInComponent extends React.Component {
   state = {
     username: "",
@@ -14,7 +17,7 @@ class SignInComponent extends React.Component {
   handleSignIn = async () => {
     try {
       const user = await Auth.signIn(this.state.username, this.state.password);
-    } catch (error) {
+    } catch (err) {
       Notification({
         title: "Error",
         message:
@@ -87,21 +90,22 @@ class SignInComponent extends React.Component {
             </Form>
             <hr />
             <p style={{ fontSize: "1em" }}>
-              <span>no tienes cuenta con nosotros, haz click </span>
-              <a
-                href="https://www.w3schools.com/html/"
-                className="forgotten-password"
+              ¿No tienes cuenta con nosotros? haz click
+              <LinkButton
+                style={{ fontSize: "1em" }}
+                to="/signup"
+                variant="link"
               >
-                aqui
-              </a>
+                aquí
+              </LinkButton>
             </p>
-            <Button
+            <LinkButton
+              style={{ fontSize: "1em" }}
+              to="forgottenpassword"
               variant="link"
-              href="https://www.w3schools.com/html/"
-              className="forgotten-password"
             >
               Olvide la contraseña
-            </Button>
+            </LinkButton>
           </div>
           {/* <div>SignInComponent</div> */}
         </div>

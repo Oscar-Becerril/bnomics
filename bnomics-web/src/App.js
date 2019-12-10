@@ -17,6 +17,7 @@ import ArticleReaderPage from "./pages/ArticleReaderPage";
 
 // Components
 import NavbarComponent from "./components/NavbarComponent";
+import ForgottenPasswordPage from "./pages/ForgottenPasswordPage";
 
 // Mutations
 
@@ -83,6 +84,7 @@ class App extends React.Component {
           <Route path="/signin" component={SignInPage} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/reader" component={ArticleReaderPage} />
+          <Route path="/forgottenpassword" component={ForgottenPasswordPage} />
 
           <ProtectedRoute
             exact

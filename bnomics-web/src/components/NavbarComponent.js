@@ -36,7 +36,7 @@ const NavbarComponent = ({ user, handleSignout }) => (
                     Debate
                   </NavLink>
                 </Nav>
-                <LinkButton to="/auth">Sign In</LinkButton>
+                <LinkButton to="/signin">Sign In</LinkButton>
               </>
             ) : (
               <>

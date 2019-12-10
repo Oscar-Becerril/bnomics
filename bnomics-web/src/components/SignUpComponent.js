@@ -5,16 +5,35 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
+// Utils
+import LinkButton from "../utils/LinkButton";
+
 class SignUpComponent extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    password2: "",
+    passwordMatch: true,
+    hasnum: null,
+    hasMay: null,
+    hasSpecial: null,
+    hasMin: null,
+    minimumLenght: 8,
+    avisoPrivacidad: false
+  };
+
+  handlePasswordStrenghtVerification = () => {
+    this.state.password === this.state.password2
+      ? this.setState({ passwordMatch: true })
+      : this.setState({ passwordMatch: false });
   };
 
   handleSignUp = async () => {
     try {
-      const user = await Auth.signIn(this.state.username, this.state.password);
-    } catch (error) {
+      const user = await Auth.signUp(this.state.username, this.state.password)
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+    } catch (err) {
       Notification({
         title: "Error",
         message:
@@ -25,7 +44,7 @@ class SignUpComponent extends React.Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, password2, passwordMatch } = this.state;
     return (
       <>
         <div className="flex-center signUpForm">
@@ -57,12 +76,13 @@ class SignUpComponent extends React.Component {
               </Form.Item>
               <Form.Item label="Confirmar contraseña">
                 <Input
-                  value={password}
+                  value={password2}
                   type="password"
                   placeholder="Contraseña"
                   onChange={password => this.setState({ password })}
                 />
               </Form.Item>
+              {/* password strenght verification messages */}
               <div className="password-verification">
                 <p>La contraseña tiene que tener por lo menos un numero</p>
                 <p>
@@ -79,6 +99,9 @@ class SignUpComponent extends React.Component {
                 </p>
                 <p>
                   La contraseña tiene que tener por lo menos un 8 caracteres
+                </p>
+                <p display={!passwordMatch}>
+                  Las contraseñas tiene que ser iguales
                 </p>
               </div>
               <div>
@@ -103,7 +126,7 @@ class SignUpComponent extends React.Component {
                 >
                   Inciar Sesion
                 </Button>
-                <Button variant="outline-danger" onClick={this.handleSignIn}>
+                <Button variant="outline-danger" onClick={this.handleSignUp}>
                   Cancelar
                 </Button>
               </div>
@@ -126,23 +149,12 @@ class SignUpComponent extends React.Component {
             </Form>
             <hr />
             <p style={{ fontSize: "1em" }}>
-              <span>no tienes cuenta con nosotros, haz click </span>
-              <a
-                href="https://www.w3schools.com/html/"
-                className="forgotten-password"
-              >
-                aqui
-              </a>
+              <span>¿Ya tienes cuenta? haz click </span>
+              <LinkButton to="/signup" variant="link">
+                aquí
+              </LinkButton>
             </p>
-            <Button
-              variant="link"
-              href="https://www.w3schools.com/html/"
-              className="forgotten-password"
-            >
-              Olvide la contraseña
-            </Button>
           </div>
-          {/* <div>SignInComponent</div> */}
         </div>
       </>
     );
