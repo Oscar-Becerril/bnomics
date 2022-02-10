@@ -9,7 +9,7 @@
     "element-react": "^1.4.34",
     "element-theme-default": "^1.4.13",
     "jquery": "^3.4.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.15",
     "react-dom": "^16.12.0",
